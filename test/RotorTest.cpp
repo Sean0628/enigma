@@ -21,6 +21,34 @@ int main() {
     } else {
         cout << "Test backward(4): FAIL (Expected 0, got " << backwardResult1 << ")" << endl;
     }
+
+    // Rotor.rotate()
+    rotor.rotate();
+    if (rotor.get_left() == "BCDEFGHIJKLMNOPQRSTUVWXYZA") {
+        cout << "Test rotate(): PASS" << endl;
+    } else {
+        cout << "Test rotate(): FAIL (Expected BCDEFGHIJKLMNOPQRSTUVWXYZA, got " << rotor.get_left() << ")" << endl;
+    }
+
+    if (rotor.get_right() == "KMFLGDQVZNTOWYHXUSPAIBRCJE") {
+        cout << "Test rotate(): PASS" << endl;
+    } else {
+        cout << "Test rotate(): FAIL (Expected KMFLGDQVZNTOWYHXUSPAIBRCJE, got " << rotor.get_right() << ")" << endl;
+    }
+
+    // Rotor.rotate_to()
+    rotor.rotate_to('G');
+    if (rotor.get_left() == "GHIJKLMNOPQRSTUVWXYZABCDEF") {
+        cout << "Test rotate_to('G'): PASS" << endl;
+    } else {
+        cout << "Test rotate_to('G'): FAIL (Expected GHIJKLMNOPQRSTUVWXYZABCDEF, got " << rotor.get_left() << ")" << endl;
+    }
+
+    if (rotor.get_right() == "DQVZNTOWYHXUSPAIBRCJEKMFLG") {
+        cout << "Test rotate_to('G'): PASS" << endl;
+    } else {
+        cout << "Test rotate_to('G'): FAIL (Expected DQVZNTOWYHXUSPAIBRCJEKMFLG, got " << rotor.get_right() << ")" << endl;
+    }
   }
 
   {
