@@ -16,6 +16,8 @@ class Enigma
     Plugboard plugboard;
     Keyboard keyboard;
 
+    void rotate_rotors();
+
   public:
     Enigma(
         Reflector reflector,

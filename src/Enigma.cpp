@@ -36,6 +36,8 @@ char Enigma::encipher(char letter)
     return letter;
   }
 
+  this->rotate_rotors();
+
   signal = this->plugboard.forward(signal);
   signal = this->rotor3.forward(signal);
   signal = this->rotor2.forward(signal);
@@ -48,4 +50,26 @@ char Enigma::encipher(char letter)
   letter = this->keyboard.backward(signal);
 
   return letter;
+}
+
+void Enigma::rotate_rotors()
+{
+  if (
+      (this->rotor2.is_notch() && this->rotor3.is_notch()) ||
+      this->rotor2.is_notch()
+      )
+  {
+    this->rotor1.rotate();
+    this->rotor2.rotate();
+    this->rotor3.rotate();
+  }
+  else if (this->rotor3.is_notch())
+  {
+    this->rotor2.rotate();
+    this->rotor3.rotate();
+  }
+  else
+  {
+    this->rotor3.rotate();
+  }
 }
