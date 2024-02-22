@@ -18,4 +18,8 @@ public:
 
   int forward(int signal) const;
   int backward(int signal) const;
+  void rotate();
+  void rotate_to(char letter);
+  string get_left() const { return this->left; }
+  string get_right() const { return this->right; }
 };

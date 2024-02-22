@@ -38,3 +38,22 @@ int Rotor::backward(int signal) const
     return static_cast<int>(backwardSignal);
   }
 }
+
+void Rotor::rotate()
+{
+  char firstLeft = this->left[0];
+  this->left.erase(0, 1);
+  this->left += firstLeft;
+
+  char firstRight = this->right[0];
+  this->right.erase(0, 1);
+  this->right += firstRight;
+}
+
+void Rotor::rotate_to(char letter)
+{
+  while (this->left[0] != letter)
+  {
+    this->rotate();
+  }
+}
