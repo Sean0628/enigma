@@ -6,7 +6,7 @@ using namespace std;
 int main() {
   {
     // Rotor I
-    Rotor rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
+    Rotor rotor = Rotor::create(1);
 
     int forwardResult1 = rotor.forward(0);
     if (forwardResult1 == 4) {
@@ -53,7 +53,7 @@ int main() {
 
   {
     // Rotor II
-    Rotor rotor("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E');
+    Rotor rotor = Rotor::create(2);
 
     int forwardResult2 = rotor.forward(0);
     if (forwardResult2 == 0) {
@@ -72,7 +72,7 @@ int main() {
 
   {
     // Rotor III
-    Rotor rotor("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V');
+    Rotor rotor = Rotor::create(3);
 
     int forwardResult3 = rotor.forward(0);
     if (forwardResult3 == 1) {
@@ -91,7 +91,7 @@ int main() {
 
   {
     // Rotor IV
-    Rotor rotor("ESOVPZJAYQUIRHXLNFTGKDCMWB", 'J');
+    Rotor rotor = Rotor::create(4);
 
     int forwardResult4 = rotor.forward(0);
     if (forwardResult4 == 4) {
@@ -110,7 +110,7 @@ int main() {
 
   {
     // Rotor V
-    Rotor rotor("VZBRGITYUPSDNHLXAWMJQOFECK", 'Z');
+    Rotor rotor = Rotor::create(5);
 
     int forwardResult5 = rotor.forward(0);
     if (forwardResult5 == 21) {

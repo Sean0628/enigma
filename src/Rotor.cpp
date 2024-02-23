@@ -2,6 +2,14 @@
 
 const string Rotor::ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+const map<int, pair<string, char>> Rotor::CONFIG = {
+    {1, {"EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q'}}, // Rotor I
+    {2, {"AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E'}}, // Rotor II
+    {3, {"BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V'}}, // Rotor III
+    {4, {"ESOVPZJAYQUIRHXLNFTGKDCMWB", 'J'}}, // Rotor IV
+    {5, {"VZBRGITYUPSDNHLXAWMJQOFECK", 'Z'}}  // Rotor V
+};
+
 Rotor::Rotor(string wiring, char notch)
 {
   this->left = ALPHABETS;
@@ -11,6 +19,18 @@ Rotor::Rotor(string wiring, char notch)
 
 Rotor::~Rotor()
 {
+}
+
+Rotor Rotor::create(int type)
+{
+  auto it = CONFIG.find(type);
+
+  if (it == CONFIG.end())
+  {
+    throw invalid_argument("Invalid rotor type");
+  } else {
+    return Rotor(it->second.first, it->second.second);
+  }
 }
 
 int Rotor::forward(int signal) const
