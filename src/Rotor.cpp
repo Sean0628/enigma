@@ -80,7 +80,7 @@ void Rotor::rotate_to(char letter)
 
 void Rotor::set_ring(int position)
 {
-  this->rotate(position-1, true);
+  this->rotate(position, true);
 
   int notchIndex = ALPHABETS.find(this->notch);
   this->notch = ALPHABETS[(notchIndex - position) % ALPHABETS.size()];
