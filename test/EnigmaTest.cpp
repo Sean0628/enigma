@@ -89,9 +89,9 @@ int main() {
     char letter = 'A';
     char encipheredResult = enigma.encipher(letter);
     if (encipheredResult == 'W') {
-      cout << "Test encipher('A'): PASS" << endl;
+      cout << "Test encipher('A') w/ set_keys(), set_rings(): PASS" << endl;
     } else {
-      cout << "Test encipher('A'): FAIL (Expected W, got " << encipheredResult << ")" << endl;
+      cout << "Test encipher('A') w/ set_keys(), set_rings(): FAIL (Expected W, got " << encipheredResult << ")" << endl;
     }
   }
 
