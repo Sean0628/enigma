@@ -7,11 +7,11 @@ using namespace std;
 class Reflector
 {
 private:
+  static const string ALPHABETS;
+
   string left, right;
 
 public:
-  static const string ALPHABETS;
-
   Reflector(string wiring);
   ~Reflector();
 

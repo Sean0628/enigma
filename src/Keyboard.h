@@ -6,9 +6,10 @@ using namespace std;
 
 class Keyboard
 {
-public:
+private:
   static const string ALPHABETS;
 
+public:
   Keyboard();
   ~Keyboard();
 

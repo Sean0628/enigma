@@ -9,11 +9,10 @@ using namespace std;
 class Plugboard
 {
 private:
+  static const string ALPHABETS;
   string left, right;
 
 public:
-  static const string ALPHABETS;
-
   Plugboard(vector<pair<char, char>> mapping);
   ~Plugboard();
 
