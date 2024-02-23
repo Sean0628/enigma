@@ -16,6 +16,8 @@ class Enigma
     Plugboard plugboard;
     Keyboard keyboard;
 
+    void rotate_rotors();
+
   public:
     Enigma(
         Reflector reflector,
@@ -27,5 +29,9 @@ class Enigma
         );
     ~Enigma();
 
+    void set_keys(char key1, char key2, char key3);
     char encipher(char message);
+    Rotor get_rotor1() const { return this->rotor1; }
+    Rotor get_rotor2() const { return this->rotor2; }
+    Rotor get_rotor3() const { return this->rotor3; }
 };

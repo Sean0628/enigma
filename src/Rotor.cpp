@@ -39,21 +39,22 @@ int Rotor::backward(int signal) const
   }
 }
 
-void Rotor::rotate()
+void Rotor::rotate(int times)
 {
-  char firstLeft = this->left[0];
-  this->left.erase(0, 1);
-  this->left += firstLeft;
+  for (int i = 0; i < times; i++)
+  {
+    char firstLeft = this->left[0];
+    this->left.erase(0, 1);
+    this->left += firstLeft;
 
-  char firstRight = this->right[0];
-  this->right.erase(0, 1);
-  this->right += firstRight;
+    char firstRight = this->right[0];
+    this->right.erase(0, 1);
+    this->right += firstRight;
+  }
 }
 
 void Rotor::rotate_to(char letter)
 {
-  while (this->left[0] != letter)
-  {
-    this->rotate();
-  }
+  size_t index = this->left.find(letter);
+  this->rotate(index);
 }

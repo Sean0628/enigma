@@ -18,8 +18,9 @@ public:
 
   int forward(int signal) const;
   int backward(int signal) const;
-  void rotate();
+  void rotate(int times = 1);
   void rotate_to(char letter);
+  bool is_notch() const { return this->left[0] == this->notch; }
   string get_left() const { return this->left; }
   string get_right() const { return this->right; }
 };
