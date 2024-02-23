@@ -35,6 +35,13 @@ void Enigma::set_keys(char key1, char key2, char key3)
   this->rotor3.rotate_to(key3);
 }
 
+void Enigma::set_rings(int ring1, int ring2, int ring3)
+{
+  this->rotor1.set_ring(ring1);
+  this->rotor2.set_ring(ring2);
+  this->rotor3.set_ring(ring3);
+}
+
 char Enigma::encipher(char letter)
 {
   int signal = this->keyboard.forward(letter);

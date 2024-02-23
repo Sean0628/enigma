@@ -66,5 +66,34 @@ int main() {
     }
   }
 
+  {
+    // Enigma::encipher() w/ set_keys(), set_rings()
+    Reflector reflector = Reflector::create('B');
+    Rotor rotor1 = Rotor::create(1);
+    Rotor rotor2 = Rotor::create(2);
+    Rotor rotor3 = Rotor::create(3);
+
+    vector<pair<char, char>> mapping = {
+      {'A', 'R'},
+      {'G', 'K'},
+      {'O', 'X'},
+    };
+    Plugboard plugboard(mapping);
+    Keyboard keyboard;
+
+    Enigma enigma(reflector, rotor1, rotor2, rotor3, plugboard, keyboard);
+
+    enigma.set_keys('D', 'O', 'G');
+    enigma.set_rings(1, 2, 3);
+
+    char letter = 'A';
+    char encipheredResult = enigma.encipher(letter);
+    if (encipheredResult == 'W') {
+      cout << "Test encipher('A'): PASS" << endl;
+    } else {
+      cout << "Test encipher('A'): FAIL (Expected W, got " << encipheredResult << ")" << endl;
+    }
+  }
+
   return 0;
 }
