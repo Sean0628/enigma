@@ -66,6 +66,25 @@ char Enigma::encipher(char letter)
   return letter;
 }
 
+string Enigma::encipher(string message)
+{
+  string result = "";
+  for (char letter : message)
+  {
+    if (isalpha(letter))
+    {
+      letter = toupper(letter);
+    } else if (isspace(letter))
+    {
+      result += letter;
+      continue;
+    }
+
+    result += this->encipher(letter);
+  }
+  return result;
+}
+
 void Enigma::rotate_rotors()
 {
   if (
