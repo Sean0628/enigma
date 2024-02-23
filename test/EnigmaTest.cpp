@@ -95,5 +95,63 @@ int main() {
     }
   }
 
+  {
+    // Enigma::encipher() string
+    Reflector reflector = Reflector::create('B');
+    Rotor rotor1 = Rotor::create(1);
+    Rotor rotor2 = Rotor::create(2);
+    Rotor rotor3 = Rotor::create(3);
+
+    vector<pair<char, char>> mapping = {
+      {'A', 'R'},
+      {'G', 'K'},
+      {'O', 'X'},
+    };
+    Plugboard plugboard(mapping);
+    Keyboard keyboard;
+
+    Enigma enigma(reflector, rotor1, rotor2, rotor3, plugboard, keyboard);
+
+    enigma.set_keys('D', 'O', 'G');
+    enigma.set_rings(1, 2, 3);
+
+    string message = "HELLO WORLD";
+    string encipheredResult = enigma.encipher(message);
+    if (encipheredResult == "JBETS SDLVL") {
+      cout << "Test encipher('HELLO WORLD') w/ set_keys(), set_rings(): PASS" << endl;
+    } else {
+      cout << "Test encipher('HELLO WORLD') w/ set_keys(), set_rings(): FAIL (Expected JBETS SDLVL, got " << encipheredResult << ")" << endl;
+    }
+  }
+
+  {
+    // Enigma::encipher() string reverse
+    Reflector reflector = Reflector::create('B');
+    Rotor rotor1 = Rotor::create(1);
+    Rotor rotor2 = Rotor::create(2);
+    Rotor rotor3 = Rotor::create(3);
+
+    vector<pair<char, char>> mapping = {
+      {'A', 'R'},
+      {'G', 'K'},
+      {'O', 'X'},
+    };
+    Plugboard plugboard(mapping);
+    Keyboard keyboard;
+
+    Enigma enigma(reflector, rotor1, rotor2, rotor3, plugboard, keyboard);
+
+    enigma.set_keys('D', 'O', 'G');
+    enigma.set_rings(1, 2, 3);
+
+    string message = "JBETS SDLVL";
+    string encipheredResult = enigma.encipher(message);
+    if (encipheredResult == "HELLO WORLD") {
+      cout << "Test encipher('JBETS SDLVL') w/ set_keys(), set_rings(): PASS" << endl;
+    } else {
+      cout << "Test encipher('JBETS SDLVL') w/ set_keys(), set_rings(): FAIL (Expected JBETS SDLVL, got " << encipheredResult << ")" << endl;
+    }
+  }
+
   return 0;
 }
