@@ -72,7 +72,7 @@ int main() {
   }
 
   // Ring settings
-  cout << "Enter ring settings 1-26 (e.g., 123): ";
+  cout << "Enter ring settings (e.g., ABC): ";
   string ringSettings;
   cin >> ringSettings;
 
@@ -107,9 +107,9 @@ int main() {
       );
 
   enigma.set_rings(
-      ringSettings[0] - '0',
-      ringSettings[1] - '0',
-      ringSettings[2] - '0'
+      ringSettings[0] - 'A',
+      ringSettings[1] - 'A',
+      ringSettings[2] - 'A'
       );
 
   string message;
