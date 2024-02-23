@@ -12,10 +12,10 @@ using namespace std;
 int main() {
   {
     // Enigma::set_keys()
-    Reflector reflector("EJMZALYXVBWFCRQUONTSPIKHGD");
-    Rotor rotor1("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
-    Rotor rotor2("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E');
-    Rotor rotor3("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V');
+    Reflector reflector = Reflector::create('A');
+    Rotor rotor1 = Rotor::create(1);
+    Rotor rotor2 = Rotor::create(2);
+    Rotor rotor3 = Rotor::create(3);
 
     vector<pair<char, char>> mapping = {
       {'A', 'R'},
@@ -42,10 +42,10 @@ int main() {
 
   {
     // Enigma::encipher()
-    Reflector reflector("EJMZALYXVBWFCRQUONTSPIKHGD");
-    Rotor rotor1("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
-    Rotor rotor2("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E');
-    Rotor rotor3("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V');
+    Reflector reflector = Reflector::create('A');
+    Rotor rotor1 = Rotor::create(1);
+    Rotor rotor2 = Rotor::create(2);
+    Rotor rotor3 = Rotor::create(3);
 
     vector<pair<char, char>> mapping = {
       {'A', 'R'},

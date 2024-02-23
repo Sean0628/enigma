@@ -1,17 +1,22 @@
 #pragma once
 
 #include <string>
+#include <map>
+#include <stdexcept>
 
 using namespace std;
 
 class Rotor
 {
 private:
+  static const string ALPHABETS;
+  static const map<int, pair<string, char>> CONFIG;
+
   string left, right;
   char notch;
 
 public:
-  static const string ALPHABETS;
+  static Rotor create(int type);
 
   Rotor(string wiring, char notch);
   ~Rotor();

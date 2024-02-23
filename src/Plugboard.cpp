@@ -5,7 +5,7 @@ const string Plugboard::ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 Plugboard::Plugboard(vector<pair<char, char>> mapping)
 {
   if (mapping.size() > 10) {
-      throw std::invalid_argument("Mapping exceeds the maximum allowed pairs of 10");
+      throw invalid_argument("Mapping exceeds the maximum allowed pairs of 10");
   }
 
   this->left = ALPHABETS;

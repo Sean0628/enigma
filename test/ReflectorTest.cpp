@@ -6,7 +6,7 @@ using namespace std;
 int main() {
   {
     // Reflector A
-    Reflector reflector("EJMZALYXVBWFCRQUONTSPIKHGD");
+    Reflector reflector = Reflector::create('A');
 
     int reflectResult1 = reflector.reflect(0);
     if (reflectResult1 == 4) {
@@ -18,7 +18,7 @@ int main() {
 
   {
     // Reflector B
-    Reflector reflector("YRUHQSLDPXNGOKMIEBFZCWVJAT");
+    Reflector reflector = Reflector::create('B');
 
     int reflectResult2 = reflector.reflect(0);
     if (reflectResult2 == 24) {
@@ -30,7 +30,7 @@ int main() {
 
   {
     // Reflector C
-    Reflector reflector("FVPJIAOYEDRZXWGCTKUQSBNMHL");
+    Reflector reflector = Reflector::create('C');
 
     int reflectResult3 = reflector.reflect(0);
     if (reflectResult3 == 5) {
