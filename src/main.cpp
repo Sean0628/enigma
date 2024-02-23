@@ -44,7 +44,7 @@ int main() {
 
   cout << "Enter plugboard mappings (e.g., ABCDEF for A->B, C->D, E->F), or press Enter to skip: ";
   string plugboardInput;
-  getline(cin, plugboardInput); // Use getline to allow empty input
+  getline(cin, plugboardInput);
 
   for (size_t i = 0; i < plugboardInput.length(); i += 2) {
       char first = plugboardInput[i];
@@ -115,7 +115,7 @@ int main() {
   string message;
   cout << "Enter message: ";
 
-  cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear the input buffer
+  cin.ignore(numeric_limits<streamsize>::max(), '\n');
   getline(cin, message);
 
   cout << "Enciphered message: ";
