@@ -11,7 +11,37 @@ using namespace std;
 
 int main() {
   {
-    // Enigma
+    // Enigma::set_keys()
+    Reflector reflector("EJMZALYXVBWFCRQUONTSPIKHGD");
+    Rotor rotor1("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
+    Rotor rotor2("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E');
+    Rotor rotor3("BDFHJLCPRTXVZNYEIWGAKMUSQO", 'V');
+
+    vector<pair<char, char>> mapping = {
+      {'A', 'R'},
+      {'G', 'K'},
+      {'O', 'X'},
+    };
+    Plugboard plugboard(mapping);
+    Keyboard keyboard;
+
+    Enigma enigma(reflector, rotor1, rotor2, rotor3, plugboard, keyboard);
+
+    enigma.set_keys('D', 'O', 'G');
+
+    if (
+        enigma.get_rotor1().get_left()[0] == 'D' &&
+        enigma.get_rotor2().get_left()[0] == 'O' &&
+        enigma.get_rotor3().get_left()[0] == 'G'
+        ) {
+      cout << "Test set_keys('D', 'O', 'G'): PASS" << endl;
+    } else {
+      cout << "Test set_keys('D', 'O', 'G'): FAIL (Expected D, O, G, got " << enigma.get_rotor1().get_left()[0] << ", " << enigma.get_rotor2().get_left()[0] << ", " << enigma.get_rotor3().get_left()[0] << ")" << endl;
+    }
+  }
+
+  {
+    // Enigma::encipher()
     Reflector reflector("EJMZALYXVBWFCRQUONTSPIKHGD");
     Rotor rotor1("EKMFLGDQVZNTOWYHXUSPAIBRCJ", 'Q');
     Rotor rotor2("AJDKSIRUXBLHWTMCQGZNPYFVOE", 'E');
@@ -28,10 +58,11 @@ int main() {
     Enigma enigma(reflector, rotor1, rotor2, rotor3, plugboard, keyboard);
 
     char letter = 'A';
-    if (enigma.encipher(letter) == 'X') {
+    char encipheredResult = enigma.encipher(letter);
+    if (encipheredResult == 'N') {
       cout << "Test encipher('A'): PASS" << endl;
     } else {
-      cout << "Test encipher('A'): FAIL (Expected X, got " << enigma.encipher(letter) << ")" << endl;
+      cout << "Test encipher('A'): FAIL (Expected N, got " << encipheredResult << ")" << endl;
     }
   }
 
