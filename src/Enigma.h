@@ -30,6 +30,7 @@ class Enigma
     ~Enigma();
 
     void set_keys(char key1, char key2, char key3);
+    void set_rings(int ring1, int ring2, int ring3);
     char encipher(char message);
     Rotor get_rotor1() const { return this->rotor1; }
     Rotor get_rotor2() const { return this->rotor2; }
